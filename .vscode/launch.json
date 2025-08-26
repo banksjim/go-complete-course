@@ -7,7 +7,8 @@
             "request": "launch",
             "mode": "auto",
             "program": "${workspaceFolder}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "output": "${workspaceFolder}/bin/go-complete-course"
         },
         {
             "name": "Launch File",
@@ -15,7 +16,8 @@
             "request": "launch",
             "mode": "debug",
             "program": "${file}",
-            "console": "integratedTerminal"
+            "console": "integratedTerminal",
+            "output": "${workspaceFolder}/bin/first-app"
         }
     ]
 }
