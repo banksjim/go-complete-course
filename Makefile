@@ -34,10 +34,10 @@ help:
 # List all lessons
 .PHONY: list
 list:
-	@echo -e "$(BLUE)Available Lessons:$(NC)"
+	@printf "$(BLUE)Available Lessons:$(NC)\n"
 	@for dir in $(LESSON_DIRS); do \
 		lesson=$$(basename $$dir); \
-		echo -e "$(GREEN)  $$lesson$(NC)"; \
+		printf "$(GREEN)  $$lesson$(NC)\n"; \
 	done
 
 # Build all lessons
