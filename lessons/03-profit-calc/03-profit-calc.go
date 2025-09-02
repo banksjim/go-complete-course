@@ -8,6 +8,7 @@ import (
 func main() {
 
     // Declare function variables
+	earningsRatio  := 0.0
 	expensesAmount := 0.0
 	grossEarnings  := 0.0
 	netEarnings    := 0.0
@@ -30,7 +31,11 @@ func main() {
 	// Calculate net earnings (earnings after taxes (profit))
 	netEarnings = grossEarnings - (grossEarnings * (taxRate / 100))
 
+	// Calculate earnings ratio
+	earningsRatio = grossEarnings / netEarnings
+
 	// Output results
 	fmt.Printf("\nGross earnings:                    $ %.2f\n", (math.Ceil(grossEarnings * 100) / 100))
     fmt.Printf("Net earnings after taxes (profit): $ %.2f\n", (math.Ceil(netEarnings * 100) / 100))
+	fmt.Printf("Earnings ratio:                      %.1f\n", earningsRatio)
 }
