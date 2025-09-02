@@ -68,5 +68,5 @@ func main() {
 	// Using math.Ceil() to round up to nearest cent for conservative estimates
 	fmt.Printf("\nGross earnings:                    $ %.2f\n", (math.Ceil(grossEarnings * 100) / 100))
     fmt.Printf("Net earnings after taxes (profit): $ %.2f\n", (math.Ceil(netEarnings * 100) / 100))
-	fmt.Printf("Earnings ratio:                      %.1f\n", earningsRatio)
+	fmt.Printf("Earnings ratio:                      %.2f\n", (math.Ceil(earningsRatio * 100) / 100))
 }
