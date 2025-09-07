@@ -13,8 +13,10 @@ func main() {
 	// Declare main() variables
 	var investmentAmount   float64 = 0
 	var expectedReturnRate float64 = 0
-	var futureRealValue    float64 = 0
+	var formattedFV        string = ""
+	var formattedRV        string = ""
 	var futureValue        float64 = 0
+	var realValue          float64 = 0
 	var yearsInvested      float64 = 0
 
     // Enter values to calculate
@@ -31,10 +33,18 @@ func main() {
 	futureValue = investmentAmount * math.Pow(1 + (expectedReturnRate / 100), yearsInvested) 
 
 	// Calculate the future real value (inflation adjusted)
-	futureRealValue = futureValue / math.Pow(1 + (InflationRate/100), yearsInvested)
+	realValue = futureValue / math.Pow(1 + (InflationRate/100), yearsInvested)
 
-	// Output future and real values
-	fmt.Println(futureValue)
-	fmt.Println(futureRealValue)
+    // Create formatted strings
+	formattedFV = fmt.Sprintf("Future value: $%.2f\n", math.Round(futureValue * 100) / 100)
+	formattedRV = fmt.Sprintf("Real value:   $%.2f\n", math.Round(realValue * 100) / 100)
+
+	// Output future and real values using Sprintf() format specifiers
+	fmt.Print(formattedFV)
+	fmt.Print(formattedRV)
+
+	// Output formatted strings using Printf()
+	fmt.Printf("Future value: $%.2f\n", math.Round(futureValue * 100) / 100)
+	fmt.Printf("Real value:   $%.2f\n", math.Round(realValue * 100) / 100)
 }
  
