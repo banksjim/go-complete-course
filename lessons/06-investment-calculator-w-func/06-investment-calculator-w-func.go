@@ -8,7 +8,6 @@ import (
 // Declare global constants
 const InflationRate float64 = 2.67
 
-
 func main() {
 	
 	// Declare main() variables
