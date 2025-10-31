@@ -1,11 +1,12 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../go-complete-guide-resources-main"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "name": "go-complete-guide-resources",
+      "path": "../go-complete-guide-resources"
+    }
+  ],
+  "settings": {}
 }
