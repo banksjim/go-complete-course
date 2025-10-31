@@ -43,11 +43,12 @@ func main() {
 	fmt.Printf("Real value:   $%.2f\n", math.Round(realValue * 100) / 100)
 }
 
-// This is the industry standard, recommended method for supporting return values from functions
-func calculateFutureValues(investmentAmount float64, expectedReturnRate float64, yearsInvested float64) (float64, float64) {
+func calculateFutureValues(investmentAmount float64, expectedReturnRate float64, yearsInvested float64) (fv float64, rfv float64) {
 
-    fv  := investmentAmount * math.Pow(1 + (expectedReturnRate / 100), yearsInvested)
-	rfv := fv / math.Pow(1 + (InflationRate/100), yearsInvested)
+    fv  = investmentAmount * math.Pow(1 + (expectedReturnRate / 100), yearsInvested)
+	rfv = fv / math.Pow(1 + (InflationRate/100), yearsInvested)
 
-	return fv, rfv	       
+	// Note the use of specifying the return values in the function definition instead of in the return.
+	// While possible, this approach is not recommended.
+	return
 }
