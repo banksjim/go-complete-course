@@ -6,7 +6,6 @@ func main() {
  
     // Declare function variables
 	var accountBalance float64 = 1000.00
-	var terminateApp   bool = false
 	var userAmount     float64 = 0
 	var userSelection  int = 0
 
@@ -21,7 +20,7 @@ func main() {
 	fmt.Println("4. Exit")
 
     // Loop until user selects the Exit option
-	for !terminateApp {
+	for {
 
 		// Select user options
 		fmt.Print("\nSelection: ")
@@ -62,11 +61,10 @@ func main() {
 
 			}
 
-			// Exit
+			// Exit - Terminate the app
 			if userSelection == 4 {
 
-				// Set terminateApp flag to true
-				terminateApp = true
+				break;
 
 			}
 
