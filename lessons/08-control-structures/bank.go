@@ -5,9 +5,9 @@ import "fmt"
 func main() {
  
     // Declare function variables
-	var accountBalance float64 = 1000.00
-	var userAmount     float64 = 0
-	var userSelection  int = 0
+	accountBalance := 1000.00
+	userAmount     := 0.0
+	userSelection  := 0
 
 	// Present welcome message
 	fmt.Println("\nWelcome to Go Bank!")
