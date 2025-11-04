@@ -40,8 +40,17 @@ func main() {
 				fmt.Print("Deposit amount: ")
 				fmt.Scan(&userAmount)
 
-				// Add deposit amount to balance
-				accountBalance += userAmount
+				// Ensure deposit amount is > 0
+				if userAmount > 0 {
+
+					// Add deposit amount to balance
+					accountBalance += userAmount
+
+				} else {
+					
+					fmt.Println("Invalid amount. Must be greater than zero.")
+
+				} 
 
 			} else if userSelection == 3 { // Withdraw money
 
@@ -49,8 +58,16 @@ func main() {
 				fmt.Print("Withdrawal amount: ")
 				fmt.Scan(&userAmount)
 
-				// Add deposit amount to balance
+                if userAmount <= accountBalance {
+
+                // Subtract withdrawal amount from balance
 				accountBalance -= userAmount
+
+				} else {
+
+                    fmt.Println("Invalid amount. Must be less than or equal to account balance.")
+
+				}
 
 			} else if userSelection == 4 { // Exit - Terminate the app
 
