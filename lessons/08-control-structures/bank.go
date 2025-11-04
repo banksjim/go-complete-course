@@ -29,16 +29,12 @@ func main() {
 		// Handle user options
 		if userSelection >= 1 && userSelection <= 4 {
 			
-			// Check balance
-			if userSelection == 1 {
+			if userSelection == 1 { // Check balance
 				
 				// Print account balance
 				fmt.Printf("Account balance: %.2f\n", accountBalance)
 			
-			}
-
-			// Deposit money
-			if userSelection == 2 {
+			} else if userSelection == 2 { // Deposit money
 
 				// Enter deposit amount
 				fmt.Print("Deposit amount: ")
@@ -47,10 +43,7 @@ func main() {
 				// Add deposit amount to balance
 				accountBalance += userAmount
 
-			}
-
-			// Withdraw money
-			if userSelection == 3 {
+			} else if userSelection == 3 { // Withdraw money
 
 				// Enter withdrawal amount
 				fmt.Print("Withdrawal amount: ")
@@ -59,19 +52,18 @@ func main() {
 				// Add deposit amount to balance
 				accountBalance -= userAmount
 
-			}
-
-			// Exit - Terminate the app
-			if userSelection == 4 {
+			} else if userSelection == 4 { // Exit - Terminate the app
 
 				break;
 
 			}
 
 		} else {
+			
 			fmt.Println("**Input error**")
+
 		}
 
-    }
+	}
 
 }
