@@ -5,9 +5,9 @@ import "fmt"
 func main() {
  
     // Declare function variables
-	var accountBalance float64 = 1000.00
-	var userAmount     float64 = 0
-	var userSelection  int = 0
+	accountBalance := 1000.00
+	userAmount     := 0.0
+	userSelection  := 0
 
 	// Present welcome message
 	fmt.Println("\nWelcome to Go Bank!")
@@ -29,49 +29,62 @@ func main() {
 		// Handle user options
 		if userSelection >= 1 && userSelection <= 4 {
 			
-			// Check balance
-			if userSelection == 1 {
+			if userSelection == 1 { // Check balance
 				
 				// Print account balance
 				fmt.Printf("Account balance: %.2f\n", accountBalance)
 			
-			}
-
-			// Deposit money
-			if userSelection == 2 {
+			} else if userSelection == 2 { // Deposit money
 
 				// Enter deposit amount
 				fmt.Print("Deposit amount: ")
 				fmt.Scan(&userAmount)
 
-				// Add deposit amount to balance
-				accountBalance += userAmount
+				// Ensure deposit amount is > 0
+				if userAmount > 0 {
 
-			}
+					// Add deposit amount to balance
+					accountBalance += userAmount
 
-			// Withdraw money
-			if userSelection == 3 {
+				} else {
+					
+					fmt.Println("Invalid amount. Must be greater than zero.")
+					continue
+
+				} 
+
+			} else if userSelection == 3 { // Withdraw money
 
 				// Enter withdrawal amount
 				fmt.Print("Withdrawal amount: ")
 				fmt.Scan(&userAmount)
 
-				// Add deposit amount to balance
+                if userAmount <= accountBalance {
+
+                // Subtract withdrawal amount from balance
 				accountBalance -= userAmount
 
-			}
+				} else {
 
-			// Exit - Terminate the app
-			if userSelection == 4 {
+                    fmt.Println("Invalid amount. Must be less than or equal to account balance.")
+					continue
+
+				}
+
+			} else if userSelection == 4 { // Exit - Terminate the app
 
 				break;
 
 			}
 
 		} else {
+			
 			fmt.Println("**Input error**")
+
 		}
 
-    }
+	}
+
+	fmt.Println("Thanks for choosing our bank!")
 
 }
