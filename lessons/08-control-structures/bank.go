@@ -49,6 +49,7 @@ func main() {
 				} else {
 					
 					fmt.Println("Invalid amount. Must be greater than zero.")
+					continue
 
 				} 
 
@@ -66,6 +67,7 @@ func main() {
 				} else {
 
                     fmt.Println("Invalid amount. Must be less than or equal to account balance.")
+					continue
 
 				}
 
@@ -82,5 +84,7 @@ func main() {
 		}
 
 	}
+
+	fmt.Println("Thanks for choosing our bank!")
 
 }
