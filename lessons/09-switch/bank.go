@@ -88,8 +88,8 @@ func main() {
 			// Error: User did not select a valid menu option
 			fmt.Println("**Input error**")
 
-		}
+		} // End switch
 
-	}
+	} // End menu control loop
 
-}
+} // End main()
