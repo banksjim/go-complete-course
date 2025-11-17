@@ -1,8 +1,10 @@
 package main
 
-import "fmt"
-import "os"
-import "time"
+import (
+	"fmt"
+	"os"
+	"time"
+)
 
 func writeBalanceToFile(balance float64) {
 
