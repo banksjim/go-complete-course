@@ -33,3 +33,6 @@ bin/
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# Ignore these files in any lesson folder
+**/AccountBalance.txt
