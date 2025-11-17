@@ -1,8 +1,34 @@
 package main
 
-import "fmt"
-import "os"
-import "time"
+import (
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+	"time"
+)
+
+// Set global constant names for input/output files
+const accountBalanceFile = "AccountBalance.txt"
+
+func getBalanceFromFile() float64 {
+
+	// Read contents of the account balance file
+	data, _ := os.ReadFile(accountBalanceFile) // Use the _ when you want to ignore the returned value 
+
+    // Parse the values from the accountBalanceFile
+	balanceText := string(data)
+	parts := strings.Split(balanceText, ",")
+	// dateTimeString := parts[0]
+	balanceString := strings.TrimSpace(parts[1]) // Remove any whitespace or newlines
+
+	// Convert balance string to float64
+	balance, _ := strconv.ParseFloat(balanceString, 64)
+
+	// Only return the balance amount for now. 
+	// We could also return and use the dateTimeString later.
+	return balance
+}
 
 func writeBalanceToFile(balance float64) {
 
@@ -13,16 +39,18 @@ func writeBalanceToFile(balance float64) {
 	balanceText := fmt.Sprintf("%s,%.2f\n", currentDateTime, balance)
 
     // Output to the AccountBalance.txt file
-	os.WriteFile("AccountBalance.txt", []byte(balanceText),0644)
+	os.WriteFile(accountBalanceFile, []byte(balanceText),0644)
 
 }
 
 func main() {
  
     // Declare function variables
-	accountBalance := 1000.00
 	userAmount     := 0.0
 	userSelection  := 0
+
+	// Retrieve the initial account balance
+	accountBalance := getBalanceFromFile()
 
 	// Present welcome message
 	fmt.Println("\nWelcome to Go Bank!")
