@@ -1,6 +1,21 @@
 package main
 
 import "fmt"
+import "os"
+import "time"
+
+func writeBalanceToFile(balance float64) {
+
+    // Get the current date/time
+	currentDateTime := time.Now()
+	
+	// Form the string to write to the AccountBalance file
+	balanceText := fmt.Sprintf("%s,%.2f\n", currentDateTime, balance)
+
+    // Output to the AccountBalance.txt file
+	os.WriteFile("AccountBalance.txt", []byte(balanceText),0644)
+
+}
 
 func main() {
  
@@ -51,6 +66,9 @@ func main() {
             // Add deposit amount to balance
 			accountBalance += userAmount
 
+			// Output updated account balance to the AccountBalance file
+			writeBalanceToFile(accountBalance)
+
 		case 3:
 
 			// Enter withdrawal amount
@@ -76,6 +94,9 @@ func main() {
 
 			// Subtract withdrawal amount from balance
 			accountBalance -= userAmount
+
+			// Output updated account balance to the AccountBalance file
+			writeBalanceToFile(accountBalance)
 
 		case 4:
 
