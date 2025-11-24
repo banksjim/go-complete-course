@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
@@ -11,10 +12,17 @@ import (
 // Set global constant names for input/output files
 const accountBalanceFile = "AccountBalance.txt"
 
-func getBalanceFromFile() float64 {
+func getBalanceFromFile() (float64, error) {
 
 	// Read contents of the account balance file
-	data, _ := os.ReadFile(accountBalanceFile) // Use the _ when you want to ignore the returned value 
+	data, error := os.ReadFile(accountBalanceFile) // Use the _ when you want to ignore the returned value 
+
+	if error != nil {
+
+		// Return a default balance of 0 and error object
+		return 0,  errors.New("Error: Error reading account balance file")
+
+	}
 
     // Parse the values from the accountBalanceFile
 	balanceText := string(data)
@@ -23,11 +31,21 @@ func getBalanceFromFile() float64 {
 	balanceString := strings.TrimSpace(parts[1]) // Remove any whitespace or newlines
 
 	// Convert balance string to float64
-	balance, _ := strconv.ParseFloat(balanceString, 64)
+	balance, error := strconv.ParseFloat(balanceString, 64)
+
+	if error != nil {
+    
+	    fmt.Println("** Unable to assign proper balance value **")
+
+		// Return a default balance of 0,  and error object
+		return 0, errors.New("Error: Unable to retrieve valid balance value")
+
+	}
 
 	// Only return the balance amount for now. 
 	// We could also return and use the dateTimeString later.
-	return balance
+	// Return nil for error value
+	return balance, nil
 }
 
 func writeBalanceToFile(balance float64) {
@@ -50,7 +68,15 @@ func main() {
 	userSelection  := 0
 
 	// Retrieve the initial account balance
-	accountBalance := getBalanceFromFile()
+	var accountBalance, error = getBalanceFromFile()
+
+	if error != nil {
+
+        fmt.Println("--------------")
+		fmt.Println(error)
+		fmt.Println("--------------")
+
+	}
 
 	// Present welcome message
 	fmt.Println("\nWelcome to Go Bank!")
