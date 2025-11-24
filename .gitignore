@@ -31,8 +31,8 @@ go.work.sum
 bin/
 
 # Editor/IDE
+.vscode/
 # .idea/
-# .vscode/
 
 # Ignore these files in any lesson folder
 **/AccountBalance.txt
