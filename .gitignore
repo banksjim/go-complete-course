@@ -35,4 +35,4 @@ bin/
 # .idea/
 
 # Ignore these files in any lesson folder
-**/AccountBalance.txt
+**/*.txt
