@@ -1,4 +1,4 @@
-package investment_calc
+package main
 
 import (
     "fmt"
